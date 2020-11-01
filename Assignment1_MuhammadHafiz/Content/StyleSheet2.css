@@ -1,0 +1,70 @@
+﻿body, html {
+    font-size: 13px;
+    height: 100%;
+}
+
+#sidebar:hover{
+    background-color:rgba(255,255,255,0.05);
+    border-radius:5px;
+}
+
+.navbar{
+    background-color: white;
+    transition: box-shadow cubic-bezier(.165, .84, .44, 1) .25s;
+    height: 56px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.05), 0 1px 6px 0 rgba(0, 0, 0, 0.05);
+}
+
+.navbar-toggler-icon {
+    height: 24px !important;
+    width: 24px !important;
+}
+
+/*
+table > tbody > tr:nth-child(odd) {
+    background-color:rgb(252,252,252);
+}
+*/
+
+th{
+    position:sticky;
+
+}
+
+table > tbody > tr:hover {
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.05), 0 1px 6px 0 rgba(0, 0, 0, 0.05);
+}
+
+#sort {
+    color:rgb(50,50,50);
+}
+
+#sort:hover {
+    color: #d93025;
+}
+
+#edit {
+    color: rgb(150,150,150);
+}
+
+#edit:hover {
+    color: #343a40;
+}
+
+#view {
+    color: rgb(150,150,150);
+}
+
+#view:hover {
+    color: #17a2b8;
+}
+
+#delete {
+    color: rgb(150,150,150);
+    text-decoration: none;
+}
+
+#delete:hover{
+    color: #dc3545;
+    text-decoration: none;
+}

@@ -1,0 +1,253 @@
+﻿@model IEnumerable<Assignment1_MuhammadHafiz.Models.User>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserLists</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+
+</head>
+<body style="background-color:rgb(251,251,251); height:100vh">
+    <!--NavBar-->
+    <row>
+        <nav class="navbar navbar-expand-lg navbar-light fixed" style="margin:0; top:0; z-index:9000; position:sticky">
+            <!--
+                <div class="container" style="margin:0 20px">
+            -->
+            <div class="col-6">
+                <a href="~/Home/Index" style="text-align:left">
+                    <img src="~/Images/logoktm.png" style="height:28px" />
+                </a>
+            </div>
+            <div class="col-6">
+                <ul class="navbar-nav ml-auto" style="margin:0; float:right">
+                    <li class="nav-item active"><a class="nav-link" href="~/Home/Login.cshtml" style="margin-left:6px; margin-right:6px; font-size:14px">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="~/Home/Signup.cshtml" style="margin-left:6px; margin-right:6px; font-size:14px">Sign up</a></li>
+                </ul>
+            </div>
+
+
+            <!--
+                <button class="navbar-toggler order-first" type="button" data-toggle="collapse" data-target="#links" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="navbar-toggler-icon"></i>
+            </button>
+            -->
+            <!--
+                <div class="collapse navbar-collapse" id="account" style="margin:0; float:right">
+                    <ul class="navbar-nav ml-auto" style="margin:0; float:right">
+                        <li class="nav-item active"><a class="nav-link" href="~/Home/Login.cshtml" style="margin-left:6px; margin-right:6px; font-size:14px">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Home/Signup.cshtml" style="margin-left:6px; margin-right:6px; font-size:14px">Sign up</a></li>
+                    </ul>
+                </div>
+            -->
+            <!--
+                </div>
+            -->
+
+        </nav>
+    </row>
+
+    <div class="container-fluid" style="font-size:13px; height:100%">
+        <div class="row" height="100%">
+            <div class="col-2" style="margin:0; padding:0; height:700px">
+                <div class="col-11" style="background-color:#2c304c; padding:6px 6px 6px 6px; z-index:8999; position:fixed; top:56px; bottom:0; width:15.8777777778%">
+                    <ul style="padding:0">
+                        <li id="sidebar" style="list-style:none; margin:2px 0">
+                            <a id="delete" href="@Url.Action("Action", "Controller")" style="display:block; padding:10px">
+                                <i class="fas fa-user-friends" style="margin:0 18px 0 2px"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li id="sidebar" style="list-style:none; margin:2px 0">
+                            <a id="delete" href="@Url.Action("Action", "Controller")" style="display:block; padding:10px">
+                                <i class="fas fa-ticket-alt" style="margin:0 18px 0 2px"></i>
+                                <span>Tickets</span>
+                            </a>
+                        </li>
+                        <li id="sidebar" style="list-style:none; margin:2px 0">
+                            <a id="delete" href="@Url.Action("Action", "Controller")" style="display:block; padding:10px">
+                                <i class="fas fa-sign-out-alt" style="margin:0 18px 0 2px"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+
+            <div class="col-10" style="margin:0; padding:19px 19px 19px 0; overflow:hidden; z-index:8998">
+                <table border="0" id="myTable" class="table" style="font-size:13px; table-layout:fixed; word-wrap:break-word; background-color:white; margin-left:6px; padding:0; max-width:none; box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.05), 0 1px 6px 0 rgba(0, 0, 0, 0.05)">
+                    <thead align="center">
+                        <tr>
+                            <th width="50" scope="col">
+                                <a id="sort" class="except" onclick="sortTable(0)" style="cursor:pointer">
+                                    <span class="fas fa-sort" style="margin:0 6px 0 6px"></span>
+                                </a>
+                            </th>
+                            <th style="padding-left:32px">
+                                @Html.DisplayNameFor(model => model.Name)
+                                <a id="sort" onclick="sortTable(1)" style="cursor:pointer">
+                                    <span class="fas fa-sort" style="margin:0 6px 0 6px"></span>
+                                </a>
+                            </th>
+                            <th width="200" style="padding-left:32px">
+                                @Html.DisplayNameFor(model => model.Email)
+                                <a id="sort" onclick="sortTable(2)" style="cursor:pointer">
+                                    <span class="fas fa-sort" style="margin:0 6px 0 6px"></span>
+                                </a>
+                            </th>
+                            <th width="180">
+                                @Html.DisplayNameFor(model => model.Password)
+                                <a id="sort" onclick="sortTable(3)" style="cursor:pointer">
+                                    <span class="fas fa-sort" style="margin:0 6px 0 6px"></span>
+                                </a>
+                            </th>
+                            <th width="120" style="padding-left:32px">
+                                @Html.DisplayNameFor(model => model.ICpass)
+                                <a id="sort" onclick="sortTable(4)" style="cursor:pointer">
+                                    <span class="fas fa-sort" style="margin:0 6px 0 6px"></span>
+                                </a>
+                            </th>
+                            <th width="100" style="padding-left:32px">
+                                @Html.DisplayNameFor(model => model.Role)
+                                <a id="sort" onclick="sortTable(5)" style="cursor:pointer">
+                                    <span class="fas fa-sort" style="margin:0 6px 0 6px"></span>
+                                </a>
+                            </th>
+                            <th width="150" style="padding-left:32px">
+                                @Html.DisplayNameFor(model => model.DateRegistered)
+                                <a id="sort" onclick="sortTable(6)" style="cursor:pointer">
+                                    <span class="fas fa-sort" style="margin:0 6px 0 6px"></span>
+                                </a>
+                            </th>
+                            <th width="150">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody align="center">
+                        @{ int no = 1;}
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td width="50px" style="padding-bottom:30px">
+                                    @no
+                                </td>
+                                @{no++;}
+                                <td align="left">
+                                    <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                                </td>
+                                <td width="200" align="left" style="text-decoration:none">
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td width="180" style="font-style:italic; color:rgb(120,120,120); font-size:8px">
+                                    @Html.DisplayFor(modelItem => item.Password)
+                                </td>
+                                <td width="120">
+                                    @Html.DisplayFor(modelItem => item.ICpass)
+                                </td>
+                                <td width="100">
+                                    @Html.DisplayFor(modelItem => item.Role)
+                                </td>
+                                <td width="150">
+                                    @Html.DisplayFor(modelItem => item.DateRegistered)
+                                </td>
+                                <td width="150">
+                                    <a id="edit" href="@Url.Action("Edit", "Edit", new { id = item.UserId })">
+                                        <span class="fas fa-pencil-alt" style="margin:0 12px"></span>
+                                    </a>
+                                    <a id="view" href="@Url.Action("Details", "Details", new { id = item.UserId })">
+                                        <span class="fas fa-ellipsis-h" style="margin:0 12px"></span>
+                                    </a>
+                                    <a id="delete" href="@Url.Action("Action", "Controller", new { id = item.UserId })">
+                                        <span class="fas fa-trash-alt" style="margin:0 12px"></span>
+                                    </a>
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    
+        
+
+
+
+
+    <script>
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("myTable");
+
+            
+
+            switching = true;
+            //Set the sorting direction to ascending:
+            dir = "asc";
+            /*Make a loop that will continue until
+            no switching has been done:*/
+            while (switching) {
+                //start by saying: no switching is done:
+                switching = false;
+                rows = table.rows;
+                /*Loop through all table rows (except the
+                first, which contains table headers):*/
+                for (i = 1; i < (rows.length - 1); i++) {
+                    //start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /*Get the two elements you want to compare,
+                    one from current row and one from the next:*/
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    /*check if the two rows should switch place,
+                    based on the direction, asc or desc:*/
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    /*If a switch has been marked, make the switch
+                    and mark that a switch has been done:*/
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    //Each time a switch is done, increase this count by 1:
+                    switchcount++;
+                } else {
+                    /*If no switching has been done AND the direction is "asc",
+                    set the direction to "desc" and run the while loop again.*/
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+﻿body {
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+    background-color: #f1f2f7;
+    color: rgb(50,50,50);
+}
+
+.textbox {
+    font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+    font-size: 13px;
+    padding: 5px 14px;
+    margin: 4px 0 0 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 24px;
+    height: 20px;
+}
+
+    .textbox:focus {
+        font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+        font-size: 13px;
+        padding: 5px 14px;
+        margin: 4px 0 0 0;
+        display: inline-block;
+        border: 1px solid #4D90FE;
+        border-radius: 24px;
+        height: 20px;
+        outline: none;
+        box-shadow: 0 0 1px;
+    }
+
+.dropdownlist {
+    font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+    font-size: 13px;
+    width: 162px;
+    padding: 5px 12px;
+    margin: 4px 0 0 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 24px;
+}
+
+    .dropdownlist:focus {
+        font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+        font-size: 13px;
+        width: 162px;
+        padding: 5px 12px;
+        margin: 4px 0 0 0;
+        display: inline-block;
+        border: 1px solid #4D90FE;
+        border-radius: 24px;
+        outline: none;
+        box-shadow: 0 0 1px;
+    }
+
+.button {
+    font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    width: 120px;
+    height: 33px;
+    padding: 5px 10px 7px 10px;
+    display: inline-block;
+    border: 0;
+    border-radius: 24px;
+    background-color: rgb(0,98,174);
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+    .button:hover {
+        font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+        font-size: 12px;
+        color: white;
+        width: 120px;
+        height: 33px;
+        padding: 5px 10px 7px 10px;
+        display: inline-block;
+        border: 0;
+        border-radius: 24px;
+        background-color: rgb(0,133,242);
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .button:focus {
+        font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+        font-size: 12px;
+        color: white;
+        width: 120px;
+        height: 33px;
+        padding: 5px 10px 7px 10px;
+        display: inline-block;
+        outline: none;
+        border-radius: 24px;
+        background-color: rgb(0,133,242);
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 614px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.05), 0 1px 6px 0 rgba(0, 0, 0, 0.05);
+    margin: auto;
+    margin-top: 0;
+}
+
+.flex-container > div {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+}
+
+.flex-container > div > div {
+        background-color: transparent;
+        margin: 5px;
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+.header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5050;
+    background-color: white;
+    transition: box-shadow cubic-bezier(.165, .84, .44, 1) .25s;
+    height: 56px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.05), 0 1px 6px 0 rgba(0, 0, 0, 0.05);
+}
+
+.line {
+    border-bottom: 1px solid lightgrey;
+}
+
+.field-validation-error {
+    color: rgb(216,44,33);
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid rgb(216,44,33);
+    background-color: white;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: rgb(216,44,33);
+    margin-left: -15px;
+}
+
+.validation-summary-errors ul{
+    font-weight: bold;
+    color: rgb(216,44,33);
+    margin: 0 0 0 -16px;
+    list-style-type: none;
+}
+
+.validation-summary-errors ul li {
+        font-weight: bold;
+        color: rgb(216,44,33);
+        margin: 0 0 -2px 0;
+        list-style-type: none;
+        background: url('/Images/iconerror.png') no-repeat left center;
+        padding: 0 0 0 18px;
+    }
+
+.validation-summary-valid {
+    display: none;
+}
+
+.image {
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 0;
+    bottom: 0;
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.content-wrap {
+    padding-bottom: 3rem;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5rem;
+    background-color: rgb(226,226,226);
+    display: block;
+}

@@ -1,0 +1,221 @@
+﻿@model Assignment1_MuhammadHafiz.Models.Ticket
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thank You for Purchasing!</title>
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+    @{
+        string kah = " \n <div style=\"width:100%; display:flex\">\n   <div style=\"width:30%; height:28px; float:left\">\n      <img src=\"https://s.put.re/gxSozsMA.png\" style=\"height:20px\" />\n   </div>\n   \n   <div style=\"width:40%; height:28px; text-align:center; font-size: 16px; font-weight:bold; font-family:\'Times New Roman\'\">\n    <span style=\"font-size: 18px; font-weight:bold; font-family:\'Times New Roman\'; color:rgb(50,50,50)\">e-Ticket\n    </span>\n    </div>\n    \n    <div style=\"width:30%; height:28px\">\n    <img src=\"https://s.put.re/u42a8KnG.png\" style=\"height:20px; float:right\" />\n    </div>\n</div>\n\n<div style=\"width: 100%; height:3px; margin: 0 0 5px 0; background-color:rgb(230,230,230)\"></div>\n\n<div style=\"width:100%; display:flex;font-family:Proxima Nova,Open Sans,Arial,Helvetica,sans-serif\">\n  \n<div style=\"width: 100%\">\n   <p style=\"margin:5px; background-color:rgb(245,245,245); font-size:9px\">\n   FULL NAME:\n   </p>\n   <p style=\"margin:5px; font-size:14px\">\n   " + Model.Users.Name + "\n   </p>\n   </div>\n</div>\n\n                           \n<div style=\"width:100%; display:flex; display:flex;font-family:Proxima Nova,Open Sans,Arial,Helvetica,sans-serif\">\n\t<div style=\"width: 40%\">\n    <p style=\"margin:5px; background-color:rgb(245,245,245); font-size:10px\">\n    IC / PASSPORT NO:\n    </p>\n    <p style=\"margin:5px; font-size:14px\">\n    " + Model.Users.ICpass + "\n    </p>\n    </div>\n\t<div style=\"width:60%\">\n\t<p style=\"margin:5px; background-color:rgb(245,245,245); font-size:10px\">\n\tEMAIL:\n\t</p>\n\t<p style=\"margin:5px; font-size:14px\">\n\t" + Model.Users.Email + "\n\t</p>\n\t</div>\n</div>\n\n<div style=\"width:100%; display:flex; font-family:Proxima Nova,Open Sans,Arial,Helvetica,sans-serif\">\n\t<div style=\"width: 50%\">\n\t<p style=\"margin:5px; background-color:rgb(245,245,245); font-size:10px\">\n\tORIGIN:\n\t</p>\n\t<p style=\"margin:5px; font-size:14px\">\n\t" + Model.StartPoint + "\n\t</p>\n\t</div>\n\n\t<div style=\"width: 50%\">\n\t<p style=\"margin:5px; background-color:rgb(245,245,245); font-size:10px\">\n\tDESTINATION:\n\t</p>\n\t<p style=\"margin:5px; font-size:14px\">\n\t" + Model.EndPoint + "\n\t</p>\n\t</div>\n</div>\n                           \n<div style=\"width:100%; display:flex;font-family:Proxima Nova,Open Sans,Arial,Helvetica,sans-serif\">\n\t<div style=\"width: 50%\">\n\t<p style=\"margin:5px; background-color:rgb(245,245,245); font-size:10px\">\n\tCATEGORY:\n\t</p>\n\t<p style=\"margin:5px; font-size:14px\">\n\t" + Model.Category + "\n\t</p>\n\t</div>\n\n\t<div style=\"width: 25%\">\n\t<p style=\"margin:5px; background-color:rgb(245,245,245); font-size:10px\">\n\tTRIP:\n\t</p>\n\t<p style=\"margin:5px; font-size:14px\">\n\t" + Model.WayType + "\n\t</p>\n\t</div>\n\n\t<div style=\"width: 25%\">\n\t<p style=\"margin:5px; background-color:rgb(245,245,245); font-size:10px\">\n\tQUANTITY:\n\t</p>\n\t<p style=\"margin:5px; font-size:14px; float:right\">\n\t" + Model.Quantity + "\n\t</p>\n\t</div>\n</div>\n\n<div style=\"width: 100%; display:flex; font-family:Proxima Nova,Open Sans,Arial,Helvetica,sans-serif\">\n\t<div style=\"width: 70%\">\n    <p style=\"margin:5px; background-color:rgb(245,245,245); font-size:10px\">\n\tDATE OF PURCHASE:\n\t</p>\n\t<p style=\"margin:5px; font-size:14px\">\n\t" + Html.DisplayFor(x => x.DateOfPurchase) + "\n\t</p>\n\t</div>\n\t<div style=\"width: 30%\">\n\t<p style=\"margin:5px; background-color:rgb(245,245,245); font-size:10px\">\n\tTOTAL PRICE:\n\t</p>\n\t<p style=\"margin:5px; font-size:14px; float:right\">\n\t" + Html.DisplayFor(x => x.TotalPrice) + "\n\t</p>\n    </div>\n</div>\n\n<div style=\"width:100%;margin:30px auto;padding:25px 0;background-color:rgb(245,245,245)\">\n    <img src=\"https://s.put.re/u42a8KnG.png\" style=\"max-height:100px;text-align:center;margin:0 auto;display:block\" />\n</div>";
+        string message;
+        string messagecolor;
+        string statusicon;
+        string messagefontcolor;
+
+        try
+        {
+            WebMail.SmtpServer = "smtp.gmail.com";
+            WebMail.SmtpPort = 587;
+            WebMail.EnableSsl = true;
+            WebMail.UserName = "ktm.hafiznikhakeem";
+            WebMail.Password = "kasijadi123";
+            WebMail.From = "ktm.hafiznikhakeem@gmail.com";
+            WebMail.Send(Model.Users.Email, "KTM Fare", kah);
+
+            message = "The copy of this e-Ticket has been sent to your email.";
+            messagecolor = "rgb(209,244,218)";
+            statusicon = "iconsuccess.png";
+            messagefontcolor = "color:rgb(49,139,68)";
+        }
+        catch (Exception)
+        {
+            message = "The copy of this e-Ticket can't be sent to your email.";
+            messagecolor = "rgb(255,241,170)";
+            statusicon = "iconwarning.png";
+            messagefontcolor = "color:rgb(168,157,107)";
+        }
+    }
+
+    <div class="page-container">
+        <div class="content-wrap">
+            <div class="header" style="background-color:white; margin-bottom:40px">
+                <a href="~/Home/Index">
+                    <img src="~/Images/logoktm.png" style="height:28px; margin:13px 14px 14px 44px; float:left" />
+                </a>
+            </div>
+
+            <h2 style="text-align: center; color:rgb(50,50,50)">KTM Komuter Online Ticketing</h2>
+            <div class="flex-container">
+                <div style="width:220px; height:386px; position:relative; background-image:linear-gradient(rgb(248,248,248) 97%,rgb(239,239,239) 3%); padding:0">
+                    <h2 style="width:160px; text-align: center; color:rgb(50,50,50); margin:auto; padding:30px 30px 0 30px; margin-bottom:0px; font-weight:bolder; position:absolute; z-index:1; top:0px">Thank you,</h2>
+                    <h3 style="text-align: center; color:rgb(50,50,50); margin:auto; margin-top:0px; font-weight:lighter; padding: 0 30px 0 30px; position:absolute; z-index:1; top:58px; width:160px; max-width:160px">@Model.Users.Name!</h3>
+                    <img src="~/Images/leftpic.png" class="image" style="position:absolute; top:0; height:386px" />
+                </div>
+
+                <!--img bottom of div, position:absolute; bottom:0-->
+
+
+
+                <div style="width: 344px; padding:17px 25px 10px 25px">
+
+                    <div style="width:344px; height:28px; position:relative; margin:0">
+                        <div style="width:94px; height:28px; text-align:center; display:block; bottom:0px; left:0px; float:left; position:absolute">
+                            <img src="~/Images/logoktm.png" style="height:20px; margin:0 auto; left:0px; position:absolute; bottom:0px" />
+                        </div>
+
+                        <div style="width:156px; height:28px; text-align:center; display:flex; font-size: 16px; font-weight:bold; font-family:'Times New Roman'; bottom:-1px; left:29%; float:left; position:absolute">
+                            <span style="width:100%; font-size: 18px; font-weight:bold; font-family:'Times New Roman'; position:absolute; align-self:flex-end; color:rgb(50,50,50)">
+                                e-Ticket Receipt
+                            </span>
+                        </div>
+
+                        <div style="width:94px; height:28px; text-align:center; display:block; bottom:0px; float:left; position:absolute; right:0px">
+                            <img src="~/Images/barcode.png" style="height:20px; margin:0 auto; right:0px; position:absolute; bottom:0px" />
+                        </div>
+
+
+                    </div>
+
+
+
+
+                    <div style="width: 344px; height:3px; margin: 0 0 5px 0; background-color:rgb(230,230,230)"></div>
+
+
+
+                    <div style="width: 334px; margin: 0 5px 0 5px; height: 30px">
+                        <p style="margin:0 0 0 8px; background-color:rgb(245,245,245); font-size:9px">
+                            FULL NAME:
+                        </p>
+                        <p style="margin:0 0 0 8px; font-size:12px">
+                            @Model.Users.Name
+                        </p>
+                    </div>
+
+                    <div style="width: 130px; margin: 0 5px 0 5px; height: 36px">
+                        <p style="margin:0 0 0 8px; background-color:rgb(245,245,245); font-size:9px">
+                            IC / PASSPORT NO:
+                        </p>
+                        <p style="margin:0 0 0 8px; font-size:12px">
+                            @Model.Users.ICpass
+                        </p>
+                    </div>
+
+                    <div style="width:194px; margin: 0 5px 0 5px; height: 36px">
+                        <p style="margin:0 0 0 8px; background-color:rgb(245,245,245); font-size:9px">
+                            EMAIL:
+                        </p>
+                        <p style="margin:0 0 0 8px; font-size:12px">
+                            @Model.Users.Email
+                        </p>
+                    </div>
+
+
+
+
+                    <div class="line" style="width: 344px; height:1px; margin: -4px 0 0 0"></div>
+
+
+
+
+                    <div style="width: 162px; margin: 0 5px 0 5px; height: 38px">
+                        <p style="margin:0 0 0 8px; background-color:rgb(245,245,245); font-size:9px">
+                            ORIGIN:
+                        </p>
+                        <p style="margin:0 0 0 8px; font-size:14px">
+                            @Model.StartPoint
+                        </p>
+                    </div>
+
+                    <div style="width: 162px; margin: 0 5px 0 5px; height: 38px">
+                        <p style="margin:0 0 0 8px; background-color:rgb(245,245,245); font-size:9px">
+                            DESTINATION:
+                        </p>
+                        <p style="margin:0 0 0 8px; font-size:14px">
+                            @Model.EndPoint
+                        </p>
+                    </div>
+
+                    <div style="width: 162px; margin: 0 5px 0 5px; height: 44px">
+                        <p style="margin:0 0 0 8px; background-color:rgb(245,245,245); font-size:9px">
+                            CATEGORY:
+                        </p>
+                        <p style="margin:0 0 0 8px; font-size:14px">
+                            @Model.Category
+                        </p>
+                    </div>
+
+                    <div style="width: 76px; margin: 0 5px 0 5px; height: 44px">
+                        <p style="margin:0 0 0 8px; background-color:rgb(245,245,245); font-size:9px">
+                            TRIP:
+                        </p>
+                        <p style="margin:0 0 0 8px; font-size:14px">
+                            @Model.WayType
+                        </p>
+                    </div>
+
+                    <div style="width: 76px; margin: 0 5px 0 5px; height: 44px">
+                        <p style="margin:0 0 0 8px; background-color:rgb(245,245,245); font-size:9px">
+                            QUANTITY:
+                        </p>
+                        <p style="margin:0 0 0 8px; font-size:14px; float:right">
+                            @Model.Quantity
+                        </p>
+                    </div>
+
+
+
+
+
+                    <div class="line" style="width: 344px; height:1px; margin: -4px 0 0 0"></div>
+
+
+
+
+                    <div style="width: 204px; margin: 0 5px 0 5px; height: 40px">
+                        <p style="margin:0 0 0 8px; background-color:rgb(245,245,245); font-size:9px">
+                            DATE OF PURCHASE:
+                        </p>
+                        <p style="margin:0 0 0 8px; font-size:12px">
+                            @Html.DisplayFor(x => x.DateOfPurchase)
+                        </p>
+                    </div>
+
+                    <div style="width: 120px; margin: 0 5px 0 5px; height: 40px">
+                        <p style="margin:0 0 0 8px; background-color:rgb(245,245,245); font-size:9px">
+                            TOTAL PRICE:
+                        </p>
+                        <p style="margin:0 0 0 8px; font-size:14px; float:right">
+                            @Html.DisplayFor(x => x.TotalPrice)
+                        </p>
+                    </div>
+
+                    <div style="width: 344px; margin: 7px 0 0 0">
+
+                        <div style="margin:0 0 0 0; background-color:@messagecolor; border: 0px solid rgb(169,233,184); border-radius:4px; color:@messagefontcolor; text-align:left; padding: 14px 14px 14px 14px">
+                            <img src="~/Images/@statusicon" class="image" style="height:12px; width:12px; float:left; margin-right: 8px; padding-top:2px" />
+                            @message
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div style="float:right; padding: 25px 30px 0 0; color: rgb(120,120,120)">
+                © 2019 ISB42603 AP Assignment<br />
+                Developed by HafizNikHakeem
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+﻿@model Assignment1_MuhammadHafiz.Models.Ticket
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>KTM Online TIcket</title>
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="page-container">
+        <div class="content-wrap">
+            <div class="header" style="background-color:white; margin-bottom:40px">
+                <a href="~/Home/Index">
+                    <img src="~/Images/logoktm.png" style="height:28px; margin:13px 14px 14px 44px; float:left" />
+                </a>
+            </div>
+
+            <h2 style="text-align: center; color:rgb(50,50,50)">KTM Komuter Online Ticketing</h2>
+
+            @using (Html.BeginForm())
+            {
+                <div class="flex-container">
+                    <div style="width:220px; height:386px; position:relative; background-image:linear-gradient(rgb(248,248,248) 97%,rgb(239,239,239) 3%)">
+                        <h2 style="text-align: center; color:rgb(50,50,50); margin:auto; margin-top:25px; margin-bottom:0px; font-weight:bolder">Buy your tickets</h2>
+                        <h3 style="text-align: center; color:rgb(50,50,50); margin:auto; margin-top:0px; margin-bottom:52px; font-weight:lighter">Anytime, anywhere</h3>
+                        <img src="~/Images/lineup.png" class="image" />
+                    </div>
+
+                    <!--img bottom of div, position:absolute; bottom:0-->
+
+                    <div style="width: 344px; padding:25px 25px 0px 25px">
+
+                        <div style="width: 162px">
+                            &nbsp;&nbsp;&nbsp;&nbsp;Origin<br />
+                            @Html.DropDownListFor(
+                            x=>x.StartPoint,
+                            new[] {
+                                new SelectListItem() {Text="Pelabuhan Klang", Value="0"},
+                                new SelectListItem() {Text="Jalan Kastam", Value="1"},
+                                new SelectListItem() {Text="Kg. Raja Uda", Value="2"},
+                                new SelectListItem() {Text="Teluk Gadong", Value="3"},
+                                new SelectListItem() {Text="Teluk Pulai", Value="4"},
+                                new SelectListItem() {Text="Klang", Value="5"},
+                                new SelectListItem() {Text="Bukit Badak", Value="6"},
+                                new SelectListItem() {Text="Padang Jawa", Value="7"},
+                                new SelectListItem() {Text="Shah Alam", Value="8"},
+                                new SelectListItem() {Text="Batu Tiga", Value="9"},
+                                new SelectListItem() {Text="Subang Jaya", Value="10"},
+                                new SelectListItem() {Text="Setia Jaya", Value="11"},
+                                new SelectListItem() {Text="Seri Setia", Value="12"},
+                                new SelectListItem() {Text="Kg. Dato Harun", Value="13"},
+                                new SelectListItem() {Text="Jalan Templer", Value="14"},
+                                new SelectListItem() {Text="Petaling", Value="15"},
+                                new SelectListItem() {Text="Pantai Dalam", Value="16"},
+                                new SelectListItem() {Text="AngkasaPuri", Value="17"},
+                                new SelectListItem() {Text="KL Sentral", Value="18"},
+                                new SelectListItem() {Text="Kuala Lumpur", Value="19"},
+                                new SelectListItem() {Text="Bank Negara", Value="20"},
+                                new SelectListItem() {Text="Putra", Value="21"},
+                                new SelectListItem() {Text="Sentul", Value="22"},
+                                new SelectListItem() {Text="Batu Kentonmen", Value="23"},
+                                new SelectListItem() {Text="Kg. Batu", Value="24"},
+                                new SelectListItem() {Text="Taman Wahyu", Value="25"},
+                                new SelectListItem() {Text="Batu Caves", Value="26"},
+                                new SelectListItem() {Text="Tanjung Malim", Value="27"},
+                                new SelectListItem() {Text="Kuala Kubu", Value="28"},
+                                new SelectListItem() {Text="Rasa", Value="29"},
+                                new SelectListItem() {Text="Batang Kali", Value="30"},
+                                new SelectListItem() {Text="Serendah", Value="31"},
+                                new SelectListItem() {Text="Rawang", Value="32"},
+                                new SelectListItem() {Text="Kuang", Value="33"},
+                                new SelectListItem() {Text="Sungai Buloh", Value="34"},
+                                new SelectListItem() {Text="Kepong Sentral", Value="35"},
+                                new SelectListItem() {Text="Kepong", Value="36"},
+                                new SelectListItem() {Text="Segambut", Value="37"},
+                                new SelectListItem() {Text="Mid Valley", Value="38"},
+                                new SelectListItem() {Text="Seputeh", Value="39"},
+                                new SelectListItem() {Text="Salak Selatan", Value="40"},
+                                new SelectListItem() {Text="Bandar Tasik Selatan", Value="41"},
+                                new SelectListItem() {Text="Serdang", Value="42"},
+                                new SelectListItem() {Text="Kajang", Value="43"},
+                                new SelectListItem() {Text="UKM", Value="44"},
+                                new SelectListItem() {Text="Bangi", Value="45"},
+                                new SelectListItem() {Text="Batang Benar", Value="46"},
+                                new SelectListItem() {Text="Nilai", Value="47"},
+                                new SelectListItem() {Text="Labu", Value="48"},
+                                new SelectListItem() {Text="Tiroi", Value="49"},
+                                new SelectListItem() {Text="Seremban", Value="50"},
+                                new SelectListItem() {Text="Senawang", Value="51"},
+                                new SelectListItem() {Text="Sungai Gadut", Value="52"},
+                                new SelectListItem() {Text="Rembau", Value="53"},
+                                new SelectListItem() {Text="Tampin", Value="54"},
+                                new SelectListItem() {Text="Batang Melaka", Value="55"},
+                                new SelectListItem() {Text="Gemas", Value="56"}
+                            },"Select origin",
+                            new {@class="dropdownlist"}
+                            )
+                        </div>
+
+                        <div style="width: 162px">
+                            &nbsp;&nbsp;&nbsp;Destination<br />
+                            @Html.DropDownListFor(
+                            x=>x.EndPoint,
+                            new[] {
+                                new SelectListItem() {Text="Pelabuhan Klang", Value="0"},
+                                new SelectListItem() {Text="Jalan Kastam", Value="1"},
+                                new SelectListItem() {Text="Kg. Raja Uda", Value="2"},
+                                new SelectListItem() {Text="Teluk Gadong", Value="3"},
+                                new SelectListItem() {Text="Teluk Pulai", Value="4"},
+                                new SelectListItem() {Text="Klang", Value="5"},
+                                new SelectListItem() {Text="Bukit Badak", Value="6"},
+                                new SelectListItem() {Text="Padang Jawa", Value="7"},
+                                new SelectListItem() {Text="Shah Alam", Value="8"},
+                                new SelectListItem() {Text="Batu Tiga", Value="9"},
+                                new SelectListItem() {Text="Subang Jaya", Value="10"},
+                                new SelectListItem() {Text="Setia Jaya", Value="11"},
+                                new SelectListItem() {Text="Seri Setia", Value="12"},
+                                new SelectListItem() {Text="Kg. Dato Harun", Value="13"},
+                                new SelectListItem() {Text="Jalan Templer", Value="14"},
+                                new SelectListItem() {Text="Petaling", Value="15"},
+                                new SelectListItem() {Text="Pantai Dalam", Value="16"},
+                                new SelectListItem() {Text="AngkasaPuri", Value="17"},
+                                new SelectListItem() {Text="KL Sentral", Value="18"},
+                                new SelectListItem() {Text="Kuala Lumpur", Value="19"},
+                                new SelectListItem() {Text="Bank Negara", Value="20"},
+                                new SelectListItem() {Text="Putra", Value="21"},
+                                new SelectListItem() {Text="Sentul", Value="22"},
+                                new SelectListItem() {Text="Batu Kentonmen", Value="23"},
+                                new SelectListItem() {Text="Kg. Batu", Value="24"},
+                                new SelectListItem() {Text="Taman Wahyu", Value="25"},
+                                new SelectListItem() {Text="Batu Caves", Value="26"},
+                                new SelectListItem() {Text="Tanjung Malim", Value="27"},
+                                new SelectListItem() {Text="Kuala Kubu", Value="28"},
+                                new SelectListItem() {Text="Rasa", Value="29"},
+                                new SelectListItem() {Text="Batang Kali", Value="30"},
+                                new SelectListItem() {Text="Serendah", Value="31"},
+                                new SelectListItem() {Text="Rawang", Value="32"},
+                                new SelectListItem() {Text="Kuang", Value="33"},
+                                new SelectListItem() {Text="Sungai Buloh", Value="34"},
+                                new SelectListItem() {Text="Kepong Sentral", Value="35"},
+                                new SelectListItem() {Text="Kepong", Value="36"},
+                                new SelectListItem() {Text="Segambut", Value="37"},
+                                new SelectListItem() {Text="Mid Valley", Value="38"},
+                                new SelectListItem() {Text="Seputeh", Value="39"},
+                                new SelectListItem() {Text="Salak Selatan", Value="40"},
+                                new SelectListItem() {Text="Bandar Tasik Selatan", Value="41"},
+                                new SelectListItem() {Text="Serdang", Value="42"},
+                                new SelectListItem() {Text="Kajang", Value="43"},
+                                new SelectListItem() {Text="UKM", Value="44"},
+                                new SelectListItem() {Text="Bangi", Value="45"},
+                                new SelectListItem() {Text="Batang Benar", Value="46"},
+                                new SelectListItem() {Text="Nilai", Value="47"},
+                                new SelectListItem() {Text="Labu", Value="48"},
+                                new SelectListItem() {Text="Tiroi", Value="49"},
+                                new SelectListItem() {Text="Seremban", Value="50"},
+                                new SelectListItem() {Text="Senawang", Value="51"},
+                                new SelectListItem() {Text="Sungai Gadut", Value="52"},
+                                new SelectListItem() {Text="Rembau", Value="53"},
+                                new SelectListItem() {Text="Tampin", Value="54"},
+                                new SelectListItem() {Text="Batang Melaka", Value="55"},
+                                new SelectListItem() {Text="Gemas", Value="56"}
+                            }, "Select destination",
+                            new { @class = "dropdownlist" }
+                            )
+                        </div>
+
+                        <div style="width: 120px">
+                            &nbsp;&nbsp;&nbsp;Category<br />
+                            @Html.DropDownListFor(
+                            x=>x.Category,
+                            new[] {
+                                new SelectListItem() {Text="Regular"},
+                                new SelectListItem() {Text="Students"},
+                                new SelectListItem() {Text="Senior citizens"},
+                                new SelectListItem() {Text="Disabled"}
+                            },
+                            new { @class = "dropdownlist", @style = "width:120px"}
+                            )
+                        </div>
+
+                        <div style="width: 120px">
+                            &nbsp;&nbsp;&nbsp;Trip<br />
+                            @Html.DropDownListFor(
+                            x=>x.WayType,
+                            new[] {
+                                new SelectListItem() {Text="One Way"},
+                                new SelectListItem() {Text="Return"}
+                            },
+                            new { @class = "dropdownlist", @style = "width:120px" }
+                            )
+                        </div>
+
+                        <div style="width: 74px; margin-bottom:0px">
+                            &nbsp;&nbsp;&nbsp;Quantity<br />
+                            @Html.TextBoxFor(x => x.Quantity, new { @class = "textbox", @style = "width:44px; margin-bottom: 0px" })<br />
+                            <p style="text-align:center; margin:0px; font-size:10px; color:rgb(170,170,170)">Max: 12</p>
+                        </div>
+
+                        <div class="line" style="width: 340px; height:1px; margin: 8px 0 10px 0"></div>
+
+                        <div style="width: 334px">
+                            &nbsp;&nbsp;&nbsp;Full Name<br />
+                            @Html.TextBoxFor(x => x.Users.Name, new {@class = "textbox", style = "width:304px"})
+                        </div>
+
+                        <div style="width: 130px">
+                            &nbsp;&nbsp;&nbsp;IC/Passport No<br />
+                            @Html.TextBoxFor(x => x.Users.ICpass, new {@class = "textbox", style = "width:100px" })
+                        </div>
+
+                        <div style="width:194px">
+                            &nbsp;&nbsp;&nbsp;Email<br />
+                            @Html.TextBoxFor(x => x.Users.Email, new {@class = "textbox", style = "width:164px" })
+                        </div>
+
+                        <div style="width:207px; float:left; margin-right:0px">
+                            @Html.ValidationSummary()
+                        </div>
+
+                        <div style="width:127px; margin-top:8px; margin-bottom:36px; margin-left:0px">
+                            <div style="float:right">
+                                <input type="submit" value="Purchase" class="button" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="footer">
+            <div style="float:right; padding: 25px 30px 0 0; color: rgb(120,120,120)">
+                © 2019 ISB42603 AP Assignment<br />
+                Developed by HafizNikHakeem
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
